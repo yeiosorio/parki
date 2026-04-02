@@ -52,24 +52,24 @@ export function RegisterModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="fixed bottom-8 right-8 h-16 w-16 rounded-2xl shadow-2xl hover:shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all bg-primary text-primary-foreground border-2 border-white/20 z-[100]">
-          <Plus className="h-8 w-8" />
+        <Button className="fixed bottom-8 right-8 h-14 w-14 rounded-full shadow-2xl hover:shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all bg-primary text-primary-foreground border-white/10 z-[100] p-0">
+          <Plus className="h-7 w-7" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px] bg-white dark:bg-slate-950 border-border shadow-2xl overflow-hidden p-0 rounded-3xl opacity-100">
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary/30 via-primary to-primary/30" />
+      <DialogContent className="sm:max-w-[400px] glass border-white/20 shadow-[0_0_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden p-0 rounded-[2.5rem]">
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20" />
         
-        <DialogHeader className="p-6 pb-2">
-          <DialogTitle className="text-2xl font-bold tracking-tight text-gradient">Registro de Entrada</DialogTitle>
-          <p className="text-muted-foreground text-xs font-medium">Completa los datos del vehículo.</p>
+        <DialogHeader className="p-8 pb-4">
+          <DialogTitle className="text-3xl font-bold tracking-tight text-gradient">Registro</DialogTitle>
+          <p className="text-muted-foreground text-[11px] font-medium uppercase tracking-[0.2em] opacity-70">Entrada de Vehículo</p>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="plate" className="text-xs font-bold uppercase tracking-wider text-primary/70">
+        <form onSubmit={handleSubmit} className="p-8 pt-2 space-y-8">
+          <div className="space-y-3">
+            <Label htmlFor="plate" className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 ml-1">
               Placa del Vehículo
             </Label>
-            <div className="relative">
+            <div className="relative group">
               <Input
                 id="plate"
                 value={plate}
@@ -79,20 +79,20 @@ export function RegisterModal() {
                 }}
                 placeholder="ABC-123"
                 className={cn(
-                  "h-12 text-xl font-bold uppercase tracking-[0.1em] bg-muted/20 border-2 transition-all rounded-xl",
+                  "h-14 text-2xl font-bold uppercase tracking-[0.2em] bg-white/5 border-white/10 hover:border-white/20 focus-visible:ring-primary/20 transition-all rounded-2xl text-center",
                   error 
-                    ? "border-destructive/50 focus-visible:border-destructive" 
-                    : "border-border/50 focus-visible:border-primary focus-visible:ring-primary/10"
+                    ? "border-destructive/40 focus-visible:border-destructive" 
+                    : "border-white/10 focus-visible:border-primary/40"
                 )}
                 autoFocus
               />
               <AnimatePresence>
                 {error && (
                   <motion.p 
-                    initial={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="absolute -bottom-5 left-0 text-[10px] font-bold text-destructive uppercase tracking-wide"
+                    className="absolute -bottom-6 left-1 text-[9px] font-bold text-destructive uppercase tracking-wide"
                   >
                     {error}
                   </motion.p>
@@ -101,9 +101,9 @@ export function RegisterModal() {
             </div>
           </div>
 
-          <div className="space-y-3">
-            <Label className="text-xs font-bold uppercase tracking-wider text-primary/70">
-              Seleccionar Tipo
+          <div className="space-y-4">
+            <Label className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/60 ml-1">
+              Tipo de Vehículo
             </Label>
             <RadioGroup 
               value={type} 
@@ -115,18 +115,20 @@ export function RegisterModal() {
                 <Label
                   htmlFor="car"
                   className={cn(
-                    "flex flex-col items-center justify-center p-4 rounded-2xl cursor-pointer transition-all border-4",
+                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all border ",
                     type === 'car' 
-                      ? "border-primary bg-primary/20 scale-[1.02] shadow-lg" 
-                      : "border-border/10 bg-muted/30 hover:bg-muted/50"
+                      ? "border-primary/40 bg-primary/10 shadow-[inner_0_0_20px_rgba(var(--primary),0.05)]" 
+                      : "border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/10"
                   )}
                 >
-                  <Car className={cn(
-                    "h-8 w-8 mb-2 transition-colors",
-                    type === 'car' ? "text-primary" : "text-muted-foreground"
-                  )} />
+                  <div className={cn(
+                    "p-3 rounded-xl mb-2 transition-colors",
+                    type === 'car' ? "bg-primary/20 text-primary" : "bg-white/5 text-muted-foreground"
+                  )}>
+                    <Car className="h-6 w-6" />
+                  </div>
                   <span className={cn(
-                    "text-[10px] font-bold uppercase tracking-widest",
+                    "text-[9px] font-bold uppercase tracking-[0.2em]",
                     type === 'car' ? "text-primary" : "text-muted-foreground"
                   )}>Carro</span>
                 </Label>
@@ -136,18 +138,20 @@ export function RegisterModal() {
                 <Label
                   htmlFor="motorcycle"
                   className={cn(
-                    "flex flex-col items-center justify-center p-4 rounded-2xl cursor-pointer transition-all border-4",
+                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all border",
                     type === 'motorcycle' 
-                      ? "border-primary bg-primary/20 scale-[1.02] shadow-lg" 
-                      : "border-border/10 bg-muted/30 hover:bg-muted/50"
+                      ? "border-primary/40 bg-primary/10 shadow-[inner_0_0_20px_rgba(var(--primary),0.05)]" 
+                      : "border-white/5 bg-white/5 hover:bg-white/10 hover:border-white/10"
                   )}
                 >
-                  <Bike className={cn(
-                    "h-8 w-8 mb-2 transition-colors",
-                    type === 'motorcycle' ? "text-primary" : "text-muted-foreground"
-                  )} />
+                  <div className={cn(
+                    "p-3 rounded-xl mb-2 transition-colors",
+                    type === 'motorcycle' ? "bg-primary/20 text-primary" : "bg-white/5 text-muted-foreground"
+                  )}>
+                    <Bike className="h-6 w-6" />
+                  </div>
                   <span className={cn(
-                    "text-[10px] font-bold uppercase tracking-widest",
+                    "text-[9px] font-bold uppercase tracking-[0.2em]",
                     type === 'motorcycle' ? "text-primary" : "text-muted-foreground"
                   )}>Moto</span>
                 </Label>
@@ -155,9 +159,9 @@ export function RegisterModal() {
             </RadioGroup>
           </div>
 
-          <Button type="submit" className="w-full h-12 text-sm font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-primary/20 active:scale-[0.98] transition-all gap-2">
-            <CheckCircle2 className="h-4 w-4" />
-            Registrar Entrada
+          <Button type="submit" className="w-full h-14 text-[10px] font-bold uppercase tracking-[0.3em] rounded-2xl shadow-xl shadow-primary/10 hover:shadow-primary/20 active:scale-[0.98] transition-all gap-3 bg-primary text-primary-foreground group/btn">
+            <CheckCircle2 className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+            REGISTRAR
           </Button>
         </form>
       </DialogContent>
