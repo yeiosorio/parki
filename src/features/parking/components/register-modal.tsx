@@ -56,7 +56,7 @@ export function RegisterModal() {
           <Plus className="h-7 w-7" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px] glass border-none ring-1 ring-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden p-0 rounded-[2.5rem]">
+      <DialogContent className="sm:max-w-[400px] bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-background/30 border-none ring-1 ring-white/10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden p-0 rounded-[2.5rem]">
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10" />
         
         <DialogHeader className="p-8 pb-4">
