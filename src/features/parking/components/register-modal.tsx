@@ -52,16 +52,13 @@ export function RegisterModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div className="fixed bottom-8 right-8 z-[100] group">
-          <div className="absolute -inset-2 bg-gradient-to-r from-primary to-purple-600 rounded-full opacity-20 group-hover:opacity-40 blur-lg transition-opacity duration-500 animate-pulse"></div>
-          <Button className="relative h-14 w-14 rounded-full shadow-[0_0_40px_-10px_hsl(var(--primary)/0.8)] hover:shadow-[0_0_60px_-10px_hsl(var(--primary)/1)] hover:-translate-y-1 active:scale-95 transition-all duration-300 bg-primary bg-gradient-to-tr from-primary to-primary/80 text-primary-foreground border-none ring-1 ring-white/30 p-0 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <Plus className="h-7 w-7 relative z-10 drop-shadow-md" />
-          </Button>
-        </div>
+        <Button className="fixed bottom-8 right-8 h-14 w-14 rounded-full shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 bg-secondary text-foreground hover:bg-secondary/80 border-none z-[100] p-0 flex items-center justify-center group overflow-hidden">
+          <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full" />
+          <Plus className="h-6 w-6 relative z-10 transition-transform duration-300 group-hover:rotate-90" />
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px] bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-background/30 border border-white/10 shadow-[0_0_80px_-15px_hsl(var(--primary)/0.3)] overflow-hidden p-0 rounded-[2.5rem]">
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
+      <DialogContent className="sm:max-w-[400px] bg-background/30 backdrop-blur-[20px] supports-[backdrop-filter]:bg-background/20 border-none shadow-[0_0_80px_-20px_color-mix(in_oklch,var(--primary)_30%,transparent)] overflow-hidden p-0 rounded-[2.5rem]">
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10" />
         
         <DialogHeader className="p-8 pb-4 relative">
           <DialogTitle className="text-3xl font-bold tracking-tight text-gradient relative z-10">Registro</DialogTitle>
@@ -119,10 +116,10 @@ export function RegisterModal() {
                 <Label
                   htmlFor="car"
                   className={cn(
-                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all border-none ring-1",
+                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all",
                     type === 'car' 
-                      ? "ring-primary/40 bg-primary/10 shadow-[inner_0_0_20px_rgba(var(--primary),0.05)]" 
-                      : "ring-white/5 bg-white/5 hover:bg-white/10 hover:ring-white/10"
+                      ? "ring-2 ring-primary bg-primary/20 scale-[1.02] shadow-[0_0_20px_color-mix(in_oklch,var(--primary)_20%,transparent)]" 
+                      : "ring-1 ring-white/5 bg-white/5 hover:bg-white/10 hover:ring-white/10"
                   )}
                 >
                   <div className={cn(
@@ -142,10 +139,10 @@ export function RegisterModal() {
                 <Label
                   htmlFor="motorcycle"
                   className={cn(
-                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all border-none ring-1",
+                    "flex flex-col items-center justify-center p-5 rounded-[2rem] cursor-pointer transition-all",
                     type === 'motorcycle' 
-                      ? "ring-primary/40 bg-primary/10 shadow-[inner_0_0_20px_rgba(var(--primary),0.05)]" 
-                      : "ring-white/5 bg-white/5 hover:bg-white/10 hover:ring-white/10"
+                      ? "ring-2 ring-primary bg-primary/20 scale-[1.02] shadow-[0_0_20px_color-mix(in_oklch,var(--primary)_20%,transparent)]" 
+                      : "ring-1 ring-white/5 bg-white/5 hover:bg-white/10 hover:ring-white/10"
                   )}
                 >
                   <div className={cn(
@@ -163,7 +160,7 @@ export function RegisterModal() {
             </RadioGroup>
           </div>
 
-          <Button type="submit" className="w-full h-14 text-[10px] font-bold uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-primary/10 hover:shadow-primary/20 active:scale-[0.98] transition-all gap-3 bg-primary text-primary-foreground group/btn border-none">
+          <Button type="submit" className="w-full h-14 text-[10px] font-bold uppercase tracking-[0.2em] rounded-2xl shadow-xl hover:shadow-2xl active:scale-[0.98] transition-all gap-3 bg-secondary text-foreground hover:bg-secondary/80 group/btn border-none">
             <CheckCircle2 className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
             REGISTRAR
           </Button>
