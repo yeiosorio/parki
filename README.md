@@ -1,73 +1,34 @@
-# React + TypeScript + Vite
+# Parki | Parking Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Parki Dashboard](./public/screenshot.png)
 
-Currently, two official plugins are available:
+**Enlace de Producción:** [https://parki-app-2026.web.app](https://parki-app-2026.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Parki es una aplicación web moderna y minimalista diseñada para la gestión de estacionamientos. Utiliza un diseño de alta fidelidad, "glassmorphism", y animaciones fluidas para ofrecer una experiencia de usuario premium.
 
-## React Compiler
+## Características Implementadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Diseño Premium y Minimalista:** Interfaz de usuario de alta calidad con fondos oscuros, gradientes modernos y efectos de cristal (glassmorphism) utilizando Tailwind CSS.
+- **Micro-interacciones Fluidas:** Animaciones integradas con Framer Motion para transiciones suaves y respuestas visuales interactivas.
+- **Gestión Vehicular en Tiempo Real:** Registro rápido de vehículos (Carros y Motos) con validación automática de placas.
+- **Temporizador e Historial:** Visualización en tiempo real del tiempo transcurrido desde el ingreso del vehículo y cálculo automático del costo de la tarifa al finalizar con base en el tipo de vehículo.
+- **Historial Completo:** Vista de registros pasados con datos persistidos de forma segura.
+- **Testing:** Configuración de Vitest para asegurar el funcionamiento óptimo de la gestión de estado de los vehículos en la tienda (`Zustand`).
+- **Despliegue Automático:** Despliegue implementado a través de Firebase Hosting en entorno de producción.
 
-## Expanding the ESLint configuration
+## Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19 + TypeScript**
+- **Vite** para build y tooling
+- **Zustand** para la gestión global del estado
+- **Tailwind CSS v4** + component system inspirado en Shadcn UI
+- **Framer Motion** para micro-animaciones
+- **Vitest** para pruebas unitarias
+- **Firebase Hosting**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Scripts Disponibles
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `npm run dev`: Inicia el servidor de desarrollo local.
+- `npm run build`: Compila los componentes para producción.
+- `npm run test`: Ejecuta los tests unitarios.
+- `npm run preview`: Previsualiza la build de producción.
