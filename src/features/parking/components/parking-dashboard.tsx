@@ -25,9 +25,9 @@ export function ParkingDashboard() {
 
 
   return (
-    <div className="w-full max-w-7xl mx-auto space-y-8 py-2">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-primary/10">
-        <div className="space-y-3">
+    <div className="w-full max-w-7xl mx-auto space-y-5 py-1">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-primary/10">
+        <div className="space-y-2">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ export function ParkingDashboard() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex items-center gap-4 glass p-5 rounded-3xl border-white/20 shadow-lg relative overflow-hidden group"
+          className="flex items-center gap-3 glass p-4 rounded-2xl border-white/20 shadow-lg relative overflow-hidden group"
         >
           <div className="absolute -right-4 -top-4 w-20 h-20 bg-primary/5 rounded-full blur-2xl" />
           
@@ -84,8 +84,8 @@ export function ParkingDashboard() {
         </motion.div>
       </div>
 
-      <Tabs defaultValue="all" className="w-full space-y-10">
-        <TabsList className="h-14 p-1.5 glass rounded-2xl w-fit min-w-[300px]">
+      <Tabs defaultValue="all" className="w-full space-y-6">
+        <TabsList className="h-12 p-1 glass rounded-2xl w-fit min-w-[280px]">
           <TabsTrigger value="all" className="rounded-xl px-8 h-full font-bold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             Todos
           </TabsTrigger>
@@ -103,7 +103,7 @@ export function ParkingDashboard() {
           <TabsContent key="all" value="all" className="mt-0 outline-none">
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
             >
               {activeVehicles.length > 0 ? (
                 activeVehicles.map(v => <VehicleCard key={v.id} vehicle={v} />)
@@ -118,7 +118,7 @@ export function ParkingDashboard() {
           <TabsContent key="cars" value="cars" className="mt-0 outline-none">
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
             >
               {cars.length > 0 ? (
                 cars.map(v => <VehicleCard key={v.id} vehicle={v} />)
@@ -133,7 +133,7 @@ export function ParkingDashboard() {
           <TabsContent key="motorcycles" value="motorcycles" className="mt-0 outline-none">
             <motion.div 
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
             >
               {motorcycles.length > 0 ? (
                 motorcycles.map(v => <VehicleCard key={v.id} vehicle={v} />)

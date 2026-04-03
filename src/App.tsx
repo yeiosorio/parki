@@ -12,11 +12,11 @@ function App() {
 
   return (
     <ThemeProvider defaultTheme="light" storageKey="parki-ui-theme">
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans selection:bg-primary/10 pb-24">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans selection:bg-primary/10 pb-20">
         <Header />
         
-        <main className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+        <main className="container px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-5">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-5">
             <div className="flex justify-center">
               <TabsList className="h-14 p-1.5 bg-card/40 backdrop-blur-md border border-border/50 rounded-2xl shadow-lg">
                 <TabsTrigger 
